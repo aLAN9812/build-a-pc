@@ -1,0 +1,375 @@
+@import url('http://fonts.cdnfonts.com/css/plateia');
+
+body {
+    font-family: 'Plateia', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+}
+
+.nav {
+    position: fixed;
+    background-color: #222;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.nav .container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav.active .container {
+    padding: 0;
+}
+
+.nav a.current, .nav a:hover {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.home {
+    height: 100%;
+    background-image: url("../Images/homeBg.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.intro {
+    width: 700px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.intro p {
+    margin-bottom: 40px;
+}
+
+.start {
+    text-decoration: none;
+    color: white;
+    border-radius: 25px;
+    background-color: blue;
+    padding: 20px 30px;
+}
+
+.form {
+    width: 735px;
+    margin: 0 auto;
+}
+
+.form td {
+    padding: 10px;
+    font-size: smaller;
+}
+
+.form button {
+    float: right;
+    border-radius: 15px;
+    font-size: larger;
+    padding: 10px 15px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Plateia', sans-serif;
+}
+
+.form button:focus {
+    outline: none;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 250px;
+}
+
+.toggle {
+    visibility: hidden;
+}
+
+.label {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background-color: #d0d0d0;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 15px 0;
+}
+
+.toggle:checked + .label {
+    background-color: green;
+}
+
+.ball {
+    background: white;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    align-items: center;
+    justify-content: center;
+    animation: slideOff 0.3s linear forwards;
+}
+
+.toggle:checked + .label .ball {
+ animation: slideOn 0.3s linear forwards;
+}
+
+@keyframes slideOn {
+    0% {
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        transform: translateX(20px) scale(1);
+    }
+    100% {
+        transform: translateX(40px) scale(1);
+    }
+}
+
+@keyframes slideOff {
+    0% {
+        transform: translateX(40px) scale(1);
+    }
+    50% {
+        transform: translateX(20px) scale(1);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+.btn {
+    background-color: white;
+    color: rebeccapurple;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+#toasts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toast {
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    font-size: xx-small;
+}
+
+.faq-container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.faq {
+    background-color: transparent;
+    border: 1px solid #9fa4a8;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.faq.active {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1) 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-title {
+    margin: 0 35px 0 0;
+}
+
+.faq-text {
+    margin: 30px 0 0;
+    display: none;
+}
+
+.faq.active .faq-text {
+    display: block;
+}
+
+.faq-toggle {
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    height: 30px;
+    width: 30px;
+}
+
+.faq-toggle .fa-times {
+    display: none;
+}
+
+.faq.active .faq-toggle .fa-times {
+    color: white;
+    display: block;
+}
+
+.faq.active .faq-toggle .fa-chevron-down {
+    display: none;
+}
+
+.faq-toggle:focus {
+    outline: 0;
+}
+
+.faq.active .faq-toggle {
+    background-color: #9fa4a8;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    overflow: hidden;
+    margin: 120px 0 0;
+}
+
+.reviews img {
+    max-width: 100%;
+}
+
+.card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 350px;
+    margin: 20px;
+    background: white;
+}
+
+.card-header {
+    height: 200px;
+}
+
+.card-header img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-title {
+    height: 20px;
+    margin: 0;
+}
+
+.card-excerpt {
+    color: #777;
+    margin: 10px 0 20px;
+}
+
+.author {
+    display: flex;
+}
+
+.profile-img {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+    width: 150px;
+}
+
+.author-info small {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.animated-bg {
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 10%, #f6f7f8 20%, #f6f7f8 100%);
+    background-size: 200% 100%;
+    animation: bgPos 1s linear infinite;
+}
+
+.animated-bg-text {
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0;
+    height: 10px;
+    width: 100%;
+}
+
+@keyframes bgPos {
+    0% {
+        background-position: 50% 0;
+    }
+    100% {
+        background-position: -150% 0;
+    }
+}
