@@ -7,12 +7,16 @@ body {
     height: 100vh;
 }
 
-#root {
+#root, .app {
     height: 100%;
 }
 
-.app {
+main {
     height: 100%;
+}
+
+.smain {
+    margin-top: 120px;
 }
 
 .nav {
@@ -56,7 +60,6 @@ body {
 }
 
 .home {
-    height: 100%;
     background-image: url("../Images/homeBg.jpg");
     display: flex;
     justify-content: center;
@@ -83,6 +86,7 @@ body {
 }
 
 .form {
+    margin-top: 120px;
     width: 735px;
     margin: 0 auto;
 }
@@ -210,9 +214,14 @@ body {
     font-size: xx-small;
 }
 
+.faqh1 {
+    text-align: center;
+}
+
 .faq-container {
-    width: 500px;
+    width: 1000px;
     margin: 0 auto;
+    padding-bottom: 5px;
 }
 
 .faq {
