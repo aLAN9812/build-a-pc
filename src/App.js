@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { Routes, Route } from 'react-router-dom'
-import Topnav from "./Topnav"
-import Home from "./Home"
-import Build from "./Build"
-import Faq from "./Faq"
+import Topnav from "./Components/Topnav"
+import Home from "./Pages/Home"
+import Build from "./Pages/Build"
+import Faq from "./Pages/Faq"
+import Reviews from "./Pages/Reviews"
 
 function App() {
     const [where, setWhere] = useState('home')
@@ -14,7 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home setWhere={setWhere}/>}></Route>
                 <Route path="/build" element={<Build/>}></Route>
-                <Route path="/reviews"></Route>
+                <Route path="/reviews" element={<Reviews/>}></Route>
                 <Route path="/FAQ" element={<Faq/>}></Route>
             </Routes>
         </div>

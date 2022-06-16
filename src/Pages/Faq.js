@@ -1,5 +1,5 @@
 import React from "react"
-import Aq from "./Aq"
+import Aq from "../Components/Aq"
 
 function Faq() {
     return (
