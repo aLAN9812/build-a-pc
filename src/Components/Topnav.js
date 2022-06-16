@@ -1,29 +1,33 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 
-function Topnav(props) {
+function Topnav() {
+    const[current, setCurrent] = useState('')
     const setHome = () => {
-        props.setWhere('home')
+        setCurrent('/')
     }
     const setBuild = () => {
-        props.setWhere('build')
+        setCurrent('/build')
     }
     const setReviews = () => {
-        props.setWhere('reviews')
+        setCurrent('/reviews')
     }
     const setFaq = () => {
-        props.setWhere('FAQ')
+        setCurrent('FAQ')
     }
+    useEffect(() => {
+        setCurrent(window.location.pathname)
+    }, [])
 
     return (
         <nav className="nav">
             <div className="container">
                 <h1 className="logo"><Link to='/' onClick={setHome}>Build-A-PC</Link></h1>
                 <ul>
-                    <li><Link to='/' className={props.where === 'home' ? "current" : null} onClick={setHome}>Home</Link></li>
-                    <li><Link to='/build' className={props.where === 'build' ? "current" : null} onClick={setBuild}>Build</Link></li>
-                    <li><Link to='/reviews' className={props.where === 'reviews' ? "current" : null} onClick={setReviews}>Reviews</Link></li>
-                    <li><Link to='/FAQ' className={props.where === 'FAQ' ? "current" : null} onClick={setFaq}>FAQ</Link></li>
+                    <li><Link to='/' className={current === '/' ? "current" : null} onClick={setHome}>Home</Link></li>
+                    <li><Link to='/build' className={/^\/build\/?$/.test(current) ? "current" : null} onClick={setBuild}>Build</Link></li>
+                    <li><Link to='/reviews' className={/^\/reviews\/?$/.test(current) ? "current" : null} onClick={setReviews}>Reviews</Link></li>
+                    <li><Link to='/FAQ' className={/^\/faq\/?$/.test(current) ? "current" : null} onClick={setFaq}>FAQ</Link></li>
                 </ul>
             </div>
         </nav>

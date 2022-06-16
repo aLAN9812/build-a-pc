@@ -7,13 +7,14 @@ function Review(props) {
     }
     
     useEffect(() => {
-        setTimeout(changeState, 2500)
+        let timer = setTimeout(changeState, 2500)
+        return () => clearTimeout(timer)
     }, [])
 
     return (
         <div className="card">
             <div className={`card-header ${isLoaded ? '' : 'animated-bg'}`}>
-                {isLoaded ? (<img src={props.data.header}></img>) : ''}
+                {isLoaded ? (<img src={props.data.header} alt='Product'></img>) : ''}
             </div>
             <div className="card-content">
                 <h3 className={`card-title ${isLoaded ? '' : 'animated-bg animated-bg-text'}`}>
@@ -27,7 +28,7 @@ function Review(props) {
                 </p>
                 <div className="author">
                     <div className={`profile-img ${isLoaded ? '' : 'animated-bg'}`}>
-                        {isLoaded ? (<img src={props.data.profile_img}></img>) : ''}
+                        {isLoaded ? (<img src={props.data.profile_img} alt='Profile'></img>) : ''}
                     </div>
                     <div className="author-info">
                         <strong className={`${isLoaded ? '' : 'animated-bg animated-bg-text'}`}>
